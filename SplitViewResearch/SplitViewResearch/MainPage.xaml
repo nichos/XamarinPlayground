@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:SplitViewResearch"
+             xmlns:userControls="clr-namespace:SplitViewResearch.UserControls;assembly=SplitViewResearch"
+             xmlns:xForms="clr-namespace:Syncfusion.SfNavigationDrawer.XForms;assembly=Syncfusion.SfNavigationDrawer.XForms"
+             x:Class="SplitViewResearch.MainPage">
+    <xForms:SfNavigationDrawer x:Name="NavigationDrawer">
+        <xForms:SfNavigationDrawer.ContentView>
+            <Grid x:Name="mainContentView" BackgroundColor="White">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="auto"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <StackLayout BackgroundColor="#1aa1d6" Orientation="Vertical" Grid.Column="0" WidthRequest="50" HorizontalOptions="Center">
+                    <Image Source="hamburger.png" WidthRequest="24" HeightRequest="24" Margin="0,8,0,0">
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="hamburgerButton_Clicked"></TapGestureRecognizer>
+                        </Image.GestureRecognizers>
+                    </Image>
+                </StackLayout>
+                <userControls:DxSplitView x:Name="DxSplitView" Grid.Column="1">
+                    <userControls:DxSplitView.Master>
+                        <local:Master></local:Master>
+                    </userControls:DxSplitView.Master>
+                    <userControls:DxSplitView.Detail>
+                        <local:Detail></local:Detail>
+                    </userControls:DxSplitView.Detail>
+                </userControls:DxSplitView>
+            </Grid>
+        </xForms:SfNavigationDrawer.ContentView>
+    </xForms:SfNavigationDrawer>
+
+
+    
+</ContentPage>
